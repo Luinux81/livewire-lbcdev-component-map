@@ -1,0 +1,32 @@
+{
+    "name": "lbcdev/livewire-map-component",
+    "description": "A Livewire component for interactive maps using Leaflet",
+    "type": "library",
+    "license": "MIT",
+    "keywords": ["livewire", "laravel", "map", "leaflet", "component"],
+    "authors": [
+        {
+            "name": "Tu Nombre",
+            "email": "tu@email.com"
+        }
+    ],
+    "require": {
+        "php": "^8.1|^8.2|^8.3",
+        "illuminate/support": "^10.0|^11.0|^12.0",
+        "livewire/livewire": "^3.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Lbcdev\\LivewireMapComponent\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Lbcdev\\LivewireMapComponent\\MapComponentServiceProvider"
+            ]
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
