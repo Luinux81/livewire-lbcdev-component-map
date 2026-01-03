@@ -1,9 +1,9 @@
 {{-- resources/views/livewire/components/map-component.blade.php --}}
-<div 
+<div
     class="space-y-4"
     x-data="mapComponentAlpine({
-        lat: {{ $this->getDisplayLatitude() }},
-        lng: {{ $this->getDisplayLongitude() }},
+        lat: {{ $this->displayLatitude }},
+        lng: {{ $this->displayLongitude }},
         interactive: {{ $interactive ? 'true' : 'false' }},
         zoom: {{ $zoom }}
     })"
@@ -15,7 +15,7 @@
         <div class="flex items-center gap-2">
             <x-heroicon-o-map-pin class="w-5 h-5 text-primary-500" />
             <span class="text-sm font-medium text-gray-700 dark:text-gray-300">
-                @if($this->hasCoordinates())
+                @if($this->hasCoordinates)
                     Ubicación: {{ $latitude }}, {{ $longitude }}
                 @else
                     Selecciona una ubicación
