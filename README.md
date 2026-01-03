@@ -264,6 +264,118 @@ Puedes modificar estas coordenadas editando las constantes en el componente desp
 </div>
 ```
 
+## Desarrollo y Contribución
+
+### Publicar una nueva versión
+
+Para publicar una nueva versión del paquete en GitHub y Packagist, sigue estos pasos:
+
+#### 1. Actualizar el código
+
+Realiza todos los cambios necesarios y asegúrate de que todo funciona correctamente.
+
+#### 2. Actualizar el CHANGELOG (opcional pero recomendado)
+
+Documenta los cambios en un archivo `CHANGELOG.md`:
+
+```markdown
+## [1.0.1] - 2026-01-03
+
+### Fixed
+- Corregidos errores de namespace en funciones helper de Laravel
+- Mejorada compatibilidad con IDEs
+
+### Added
+- Documentación para publicación de versiones
+```
+
+#### 3. Commit de los cambios
+
+```bash
+git add .
+git commit -m "Fix: Corregidos errores de namespace y mejorada documentación"
+```
+
+#### 4. Crear un tag con la versión
+
+```bash
+# Crear tag anotado (recomendado)
+git tag -a v1.0.1 -m "Versión 1.0.1 - Correcciones de namespace"
+
+# O crear tag simple
+git tag v1.0.1
+```
+
+#### 5. Subir los cambios y el tag a GitHub
+
+```bash
+# Subir commits
+git push origin main
+
+# Subir el tag
+git push origin v1.0.1
+
+# O subir todos los tags a la vez
+git push origin --tags
+```
+
+#### 6. Crear un Release en GitHub (opcional)
+
+1. Ve a tu repositorio en GitHub
+2. Click en "Releases" → "Create a new release"
+3. Selecciona el tag que acabas de crear (v1.0.1)
+4. Añade un título: "v1.0.1 - Correcciones de namespace"
+5. Describe los cambios en el release
+6. Click en "Publish release"
+
+#### 7. Actualización automática en Packagist
+
+Si tu paquete está registrado en Packagist con el webhook de GitHub configurado, se actualizará automáticamente. Si no:
+
+1. Ve a [packagist.org](https://packagist.org)
+2. Busca tu paquete
+3. Click en "Update" para forzar la actualización
+
+### Versionado Semántico
+
+Este paquete sigue [Semantic Versioning](https://semver.org/):
+
+- **MAJOR** (1.x.x): Cambios incompatibles con versiones anteriores
+- **MINOR** (x.1.x): Nueva funcionalidad compatible con versiones anteriores
+- **PATCH** (x.x.1): Correcciones de bugs compatibles con versiones anteriores
+
+Ejemplos:
+
+```bash
+git tag -a v1.0.0 -m "Primera versión estable"
+git tag -a v1.1.0 -m "Nueva característica: soporte para múltiples marcadores"
+git tag -a v1.1.1 -m "Corrección: error en validación de coordenadas"
+git tag -a v2.0.0 -m "Breaking change: nueva API para eventos"
+```
+
+### Ver tags existentes
+
+```bash
+# Listar todos los tags
+git tag
+
+# Listar tags con sus mensajes
+git tag -n
+
+# Ver detalles de un tag específico
+git show v1.0.1
+```
+
+### Eliminar un tag (si cometiste un error)
+
+```bash
+# Eliminar tag local
+git tag -d v1.0.1
+
+# Eliminar tag remoto
+git push origin --delete v1.0.1
+```
+
 ## Soporte
 
 Si encuentras algún problema o tienes sugerencias:
