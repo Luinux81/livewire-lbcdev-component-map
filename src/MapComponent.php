@@ -24,6 +24,14 @@ class MapComponent extends Component
     private const DEFAULT_LAT = 36.9990019;
     private const DEFAULT_LNG = -6.5478919;
 
+    protected function casts(): array
+    {
+        return [
+            'latitude' => 'float',
+            'longitude' => 'float',
+        ];
+    }
+
     public function mount(
         ?float $latitude = null,
         ?float $longitude = null,
