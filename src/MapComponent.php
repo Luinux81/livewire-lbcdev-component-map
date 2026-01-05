@@ -32,23 +32,92 @@ class MapComponent extends Component
         ];
     }
 
+    /**
+     * Setter para latitude que convierte strings a float
+     */
+    public function setLatitudeProperty($value): void
+    {
+        if ($value === null || $value === '') {
+            $this->latitude = null;
+            return;
+        }
+
+        if (is_string($value)) {
+            $value = (float) $value;
+        }
+
+        $this->latitude = $value;
+    }
+
+    /**
+     * Getter para latitude
+     */
+    public function getLatitudeProperty(): ?float
+    {
+        return $this->latitude;
+    }
+
+    /**
+     * Setter para longitude que convierte strings a float
+     */
+    public function setLongitudeProperty($value): void
+    {
+        if ($value === null || $value === '') {
+            $this->longitude = null;
+            return;
+        }
+
+        if (is_string($value)) {
+            $value = (float) $value;
+        }
+
+        $this->longitude = $value;
+    }
+
+    /**
+     * Getter para longitude
+     */
+    public function getLongitudeProperty(): ?float
+    {
+        return $this->longitude;
+    }
+
     public function mount(
-        ?float $latitude = null,
-        ?float $longitude = null,
+        $latitude = null,  // Cambiar tipo para aceptar string o float
+        $longitude = null, // Cambiar tipo para aceptar string o float
         bool $interactive = true,
         bool $showLabel = true,
         bool $showPasteButton = false,
         int $height = 400,
         int $zoom = 15
     ): void {
-        $this->latitude = $latitude;
-        $this->longitude = $longitude;
+        // Usar los setters para convertir automáticamente
+        $this->setLatitudeProperty($latitude);
+        $this->setLongitudeProperty($longitude);
         $this->interactive = $interactive;
         $this->showLabel = $showLabel;
         $this->showPasteButton = $showPasteButton;
         $this->height = $height;
         $this->zoom = $zoom;
     }
+
+    // public function mount(
+    //     ?float $latitude = null,
+    //     ?float $longitude = null,
+    //     bool $interactive = true,
+    //     bool $showLabel = true,
+    //     bool $showPasteButton = false,
+    //     int $height = 400,
+    //     int $zoom = 15
+    // ): void {
+    //     $this->latitude = $latitude;
+    //     $this->longitude = $longitude;
+    //     $this->interactive = $interactive;
+    //     $this->showLabel = $showLabel;
+    //     $this->showPasteButton = $showPasteButton;
+    //     $this->height = $height;
+    //     $this->zoom = $zoom;
+    // }
 
     public function updateCoordinates(float $lat, float $lng): void
     {
