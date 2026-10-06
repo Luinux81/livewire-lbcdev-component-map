@@ -65,7 +65,8 @@
     @endif
 
     {{-- Contenedor del mapa --}}
-    <div class="border border-gray-200 dark:border-gray-700 rounded-lg shadow-sm overflow-hidden relative" wire:ignore>
+    {{-- isolation: los z-index de Leaflet (400-1000) quedan dentro de este contexto y no tapan modales ni overlays de la app --}}
+    <div class="border border-gray-200 dark:border-gray-700 rounded-lg shadow-sm overflow-hidden relative" style="isolation: isolate;" wire:ignore>
         <div
             x-ref="mapContainer"
             class="w-full"
